@@ -1,0 +1,843 @@
+{
+  "version": 3,
+  "sources": [
+    "../../reward_distributor/dummy.pool.contract.algo.ts"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;AAQA;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;;;;;;;;;;AAAA;;;AAAA;;;;;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAUG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AARW;AAUF;AAAA;;AAAD;AAAP;AACO;;AAAe;;AAAf;AAAP;AAXU;AAaV;AAAA;AALD;AAAA;AAiBA;;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAzBW;AA2BF;AAAA;;AAAR;AA3BU;AA4BH;AAAA;AAAA;AAAA;;;AAAuC;;;;;;;;;;AAAvC;AAAP;AACgD;AAAA;AACzC;;AAAe;;AAAA;;AAAA;AAAf;AAAP;AAGA;AAAA;;;;;;;;;;;;;;;;AAAA;;;;AAAA;;;AAAA;AARD;AAAA",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "@algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 1 8 0"
+    },
+    "6": {
+      "op": "bytecblock \"appState\""
+    },
+    "17": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "19": {
+      "op": "bz main___algots__.defaultCreate@9",
+      "stack_out": []
+    },
+    "22": {
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "24": {
+      "op": "!",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "25": {
+      "error": "OnCompletion must be NoOp",
+      "op": "assert // OnCompletion must be NoOp",
+      "stack_out": []
+    },
+    "26": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "28": {
+      "op": "assert",
+      "stack_out": []
+    },
+    "29": {
+      "op": "pushbytess 0x08549ad7 0x35612081 // method \"initialize(uint64)void\", method \"callAddPurchase(address,uint64)void\"",
+      "defined_out": [
+        "Method(callAddPurchase(address,uint64)void)",
+        "Method(initialize(uint64)void)"
+      ],
+      "stack_out": [
+        "Method(initialize(uint64)void)",
+        "Method(callAddPurchase(address,uint64)void)"
+      ]
+    },
+    "41": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(callAddPurchase(address,uint64)void)",
+        "Method(initialize(uint64)void)",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "Method(initialize(uint64)void)",
+        "Method(callAddPurchase(address,uint64)void)",
+        "tmp%6#0"
+      ]
+    },
+    "44": {
+      "op": "match initialize callAddPurchase",
+      "stack_out": []
+    },
+    "50": {
+      "op": "err"
+    },
+    "51": {
+      "block": "main___algots__.defaultCreate@9",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "53": {
+      "op": "!",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "54": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ]
+    },
+    "56": {
+      "op": "!",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0"
+      ]
+    },
+    "57": {
+      "op": "&&",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "58": {
+      "error": "OnCompletion must be NoOp && can only call when creating",
+      "op": "assert // OnCompletion must be NoOp && can only call when creating",
+      "stack_out": []
+    },
+    "59": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "60": {
+      "op": "return",
+      "stack_out": []
+    },
+    "61": {
+      "subroutine": "smart_contracts/reward_distributor/dummy.pool.contract.algo.ts::DummyPool.initialize[routing]",
+      "params": {},
+      "block": "initialize",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "64": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "65": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0"
+      ]
+    },
+    "66": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0",
+        "8"
+      ]
+    },
+    "67": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "eq%0#0"
+      ]
+    },
+    "68": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "69": {
+      "op": "bytec_0 // \"appState\"",
+      "defined_out": [
+        "\"appState\"",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "\"appState\""
+      ]
+    },
+    "70": {
+      "op": "box_len",
+      "defined_out": [
+        "_%0#0",
+        "maybe_exists%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "_%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "71": {
+      "op": "bury 1",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "73": {
+      "op": "!",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#1"
+      ]
+    },
+    "74": {
+      "error": "Already initialized",
+      "op": "assert // Already initialized",
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "75": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#1"
+      ]
+    },
+    "77": {
+      "op": "global CreatorAddress",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#1",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#1",
+        "tmp%2#0"
+      ]
+    },
+    "79": {
+      "op": "==",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%3#0"
+      ]
+    },
+    "80": {
+      "error": "Only the creator can initialize",
+      "op": "assert // Only the creator can initialize",
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "81": {
+      "op": "bytec_0 // \"appState\"",
+      "stack_out": [
+        "tmp%0#0",
+        "\"appState\""
+      ]
+    },
+    "82": {
+      "op": "swap",
+      "stack_out": [
+        "\"appState\"",
+        "tmp%0#0"
+      ]
+    },
+    "83": {
+      "op": "box_put",
+      "stack_out": []
+    },
+    "84": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "85": {
+      "op": "return",
+      "stack_out": []
+    },
+    "86": {
+      "subroutine": "smart_contracts/reward_distributor/dummy.pool.contract.algo.ts::DummyPool.callAddPurchase[routing]",
+      "params": {},
+      "block": "callAddPurchase",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0"
+      ]
+    },
+    "89": {
+      "op": "dup",
+      "defined_out": [
+        "purchaser#0",
+        "purchaser#0 (copy)"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaser#0 (copy)"
+      ]
+    },
+    "90": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "len%0#0"
+      ]
+    },
+    "91": {
+      "op": "pushint 32 // 32",
+      "defined_out": [
+        "32",
+        "len%0#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "len%0#0",
+        "32"
+      ]
+    },
+    "93": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "eq%0#0"
+      ]
+    },
+    "94": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "purchaser#0"
+      ]
+    },
+    "95": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0"
+      ]
+    },
+    "98": {
+      "op": "dup",
+      "defined_out": [
+        "purchaseAmount#0",
+        "purchaseAmount#0 (copy)",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "purchaseAmount#0 (copy)"
+      ]
+    },
+    "99": {
+      "op": "len",
+      "defined_out": [
+        "len%1#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "len%1#0"
+      ]
+    },
+    "100": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "len%1#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "len%1#0",
+        "8"
+      ]
+    },
+    "101": {
+      "op": "==",
+      "defined_out": [
+        "eq%1#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "eq%1#0"
+      ]
+    },
+    "102": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0"
+      ]
+    },
+    "103": {
+      "op": "bytec_0 // \"appState\"",
+      "defined_out": [
+        "\"appState\"",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "\"appState\""
+      ]
+    },
+    "104": {
+      "op": "box_len",
+      "defined_out": [
+        "_%0#0",
+        "maybe_exists%0#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "_%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "105": {
+      "op": "bury 1",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "107": {
+      "error": "Not initialized",
+      "op": "assert // Not initialized",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0"
+      ]
+    },
+    "108": {
+      "op": "bytec_0 // \"appState\"",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "\"appState\""
+      ]
+    },
+    "109": {
+      "op": "box_get",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0"
+      ]
+    },
+    "110": {
+      "op": "pop",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "aggregate%box_get%0#0"
+      ]
+    },
+    "111": {
+      "op": "dup",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%0#0 (copy)",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%0#0 (copy)"
+      ]
+    },
+    "112": {
+      "op": "extract 0 8",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%extract%0#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "aggregate%box_get%0#0",
+        "aggregate%extract%0#0"
+      ]
+    },
+    "115": {
+      "op": "pushbytes 0x0000000000000000",
+      "defined_out": [
+        "0x0000000000000000",
+        "aggregate%box_get%0#0",
+        "aggregate%extract%0#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "aggregate%box_get%0#0",
+        "aggregate%extract%0#0",
+        "0x0000000000000000"
+      ]
+    },
+    "125": {
+      "op": "!=",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "purchaseAmount#0",
+        "purchaser#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "aggregate%box_get%0#0",
+        "tmp%0#1"
+      ]
+    },
+    "126": {
+      "error": "Not initialized",
+      "op": "assert // Not initialized",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "aggregate%box_get%0#0"
+      ]
+    },
+    "127": {
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0",
+        "aggregate%box_get%0#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "aggregate%box_get%0#0",
+        "0"
+      ]
+    },
+    "128": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "distributorApp#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0"
+      ]
+    },
+    "129": {
+      "op": "txn Sender",
+      "defined_out": [
+        "distributorApp#0",
+        "purchaseAmount#0",
+        "purchaser#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0",
+        "tmp%2#0"
+      ]
+    },
+    "131": {
+      "op": "dig 1",
+      "defined_out": [
+        "distributorApp#0",
+        "distributorApp#0 (copy)",
+        "purchaseAmount#0",
+        "purchaser#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0",
+        "tmp%2#0",
+        "distributorApp#0 (copy)"
+      ]
+    },
+    "133": {
+      "op": "app_params_get AppAddress",
+      "defined_out": [
+        "check%0#0",
+        "distributorApp#0",
+        "purchaseAmount#0",
+        "purchaser#0",
+        "tmp%2#0",
+        "value%0#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0",
+        "tmp%2#0",
+        "value%0#0",
+        "check%0#0"
+      ]
+    },
+    "135": {
+      "error": "application exists",
+      "op": "assert // application exists",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0",
+        "tmp%2#0",
+        "value%0#0"
+      ]
+    },
+    "136": {
+      "op": "==",
+      "defined_out": [
+        "distributorApp#0",
+        "purchaseAmount#0",
+        "purchaser#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0",
+        "tmp%3#0"
+      ]
+    },
+    "137": {
+      "error": "Only the distributor app can log purchases",
+      "op": "assert // Only the distributor app can log purchases",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0"
+      ]
+    },
+    "138": {
+      "op": "itxn_begin"
+    },
+    "139": {
+      "op": "pushbytes 0x1cc2e494 // method \"addPurchase(address,uint64)void\"",
+      "defined_out": [
+        "Method(addPurchase(address,uint64)void)",
+        "distributorApp#0",
+        "purchaseAmount#0",
+        "purchaser#0"
+      ],
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0",
+        "Method(addPurchase(address,uint64)void)"
+      ]
+    },
+    "145": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "purchaser#0",
+        "purchaseAmount#0",
+        "distributorApp#0"
+      ]
+    },
+    "147": {
+      "op": "uncover 2",
+      "stack_out": [
+        "purchaseAmount#0",
+        "distributorApp#0",
+        "purchaser#0"
+      ]
+    },
+    "149": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "purchaseAmount#0",
+        "distributorApp#0"
+      ]
+    },
+    "151": {
+      "op": "itxn_field ApplicationID"
+    },
+    "153": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": []
+    },
+    "155": {
+      "op": "pushint 6 // appl",
+      "defined_out": [
+        "appl"
+      ],
+      "stack_out": [
+        "appl"
+      ]
+    },
+    "157": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "159": {
+      "op": "intc_2 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "160": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "162": {
+      "op": "itxn_submit"
+    },
+    "163": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "164": {
+      "op": "return",
+      "stack_out": []
+    }
+  }
+}

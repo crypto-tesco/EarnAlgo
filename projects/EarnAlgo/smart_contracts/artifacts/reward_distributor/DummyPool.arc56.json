@@ -1,0 +1,188 @@
+{
+    "name": "DummyPool",
+    "structs": {
+        "AppState": [
+            {
+                "name": "distributorApp",
+                "type": "uint64"
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "initialize",
+            "args": [
+                {
+                    "type": "uint64",
+                    "name": "distributorApp",
+                    "desc": "The Application representing the liquidity pool"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            },
+            "actions": {
+                "create": [],
+                "call": [
+                    "NoOp"
+                ]
+            },
+            "readonly": false,
+            "desc": "\nInitialize a new contract, setting poolApp",
+            "events": [],
+            "recommendations": {}
+        },
+        {
+            "name": "callAddPurchase",
+            "args": [
+                {
+                    "type": "address",
+                    "name": "purchaser",
+                    "desc": "The address of the purchaser"
+                },
+                {
+                    "type": "uint64",
+                    "name": "purchaseAmount",
+                    "desc": "The amount of the purchase in microAlgos"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            },
+            "actions": {
+                "create": [],
+                "call": [
+                    "NoOp"
+                ]
+            },
+            "readonly": false,
+            "desc": "\nLog a purchase made by a user",
+            "events": [],
+            "recommendations": {}
+        }
+    ],
+    "arcs": [
+        22,
+        28
+    ],
+    "networks": {},
+    "state": {
+        "schema": {
+            "global": {
+                "ints": 0,
+                "bytes": 0
+            },
+            "local": {
+                "ints": 0,
+                "bytes": 0
+            }
+        },
+        "keys": {
+            "global": {},
+            "local": {},
+            "box": {
+                "appState": {
+                    "keyType": "AVMString",
+                    "valueType": "AppState",
+                    "key": "YXBwU3RhdGU="
+                }
+            }
+        },
+        "maps": {
+            "global": {},
+            "local": {},
+            "box": {}
+        }
+    },
+    "bareActions": {
+        "create": [
+            "NoOp"
+        ],
+        "call": []
+    },
+    "sourceInfo": {
+        "approval": {
+            "sourceInfo": [
+                {
+                    "pc": [
+                        74
+                    ],
+                    "errorMessage": "Already initialized"
+                },
+                {
+                    "pc": [
+                        107,
+                        126
+                    ],
+                    "errorMessage": "Not initialized"
+                },
+                {
+                    "pc": [
+                        25
+                    ],
+                    "errorMessage": "OnCompletion must be NoOp"
+                },
+                {
+                    "pc": [
+                        58
+                    ],
+                    "errorMessage": "OnCompletion must be NoOp && can only call when creating"
+                },
+                {
+                    "pc": [
+                        80
+                    ],
+                    "errorMessage": "Only the creator can initialize"
+                },
+                {
+                    "pc": [
+                        137
+                    ],
+                    "errorMessage": "Only the distributor app can log purchases"
+                },
+                {
+                    "pc": [
+                        135
+                    ],
+                    "errorMessage": "application exists"
+                },
+                {
+                    "pc": [
+                        94
+                    ],
+                    "errorMessage": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>"
+                },
+                {
+                    "pc": [
+                        68,
+                        102
+                    ],
+                    "errorMessage": "invalid number of bytes for arc4.uint64"
+                }
+            ],
+            "pcOffsetMethod": "none"
+        },
+        "clear": {
+            "sourceInfo": [],
+            "pcOffsetMethod": "none"
+        }
+    },
+    "source": {
+        "approval": "I3ByYWdtYSB2ZXJzaW9uIDExCiNwcmFnbWEgdHlwZXRyYWNrIGZhbHNlCgovLyBAYWxnb3JhbmRmb3VuZGF0aW9uL2FsZ29yYW5kLXR5cGVzY3JpcHQvYXJjNC9pbmRleC5kLnRzOjpDb250cmFjdC5hcHByb3ZhbFByb2dyYW0oKSAtPiB1aW50NjQ6Cm1haW46CiAgICBpbnRjYmxvY2sgMSA4IDAKICAgIGJ5dGVjYmxvY2sgImFwcFN0YXRlIgogICAgLy8gc21hcnRfY29udHJhY3RzL3Jld2FyZF9kaXN0cmlidXRvci9kdW1teS5wb29sLmNvbnRyYWN0LmFsZ28udHM6OQogICAgLy8gZXhwb3J0IGNsYXNzIER1bW15UG9vbCBleHRlbmRzIENvbnRyYWN0IHsKICAgIHR4biBOdW1BcHBBcmdzCiAgICBieiBtYWluX19fYWxnb3RzX18uZGVmYXVsdENyZWF0ZUA5CiAgICB0eG4gT25Db21wbGV0aW9uCiAgICAhCiAgICBhc3NlcnQgLy8gT25Db21wbGV0aW9uIG11c3QgYmUgTm9PcAogICAgdHhuIEFwcGxpY2F0aW9uSUQKICAgIGFzc2VydAogICAgcHVzaGJ5dGVzcyAweDA4NTQ5YWQ3IDB4MzU2MTIwODEgLy8gbWV0aG9kICJpbml0aWFsaXplKHVpbnQ2NCl2b2lkIiwgbWV0aG9kICJjYWxsQWRkUHVyY2hhc2UoYWRkcmVzcyx1aW50NjQpdm9pZCIKICAgIHR4bmEgQXBwbGljYXRpb25BcmdzIDAKICAgIG1hdGNoIGluaXRpYWxpemUgY2FsbEFkZFB1cmNoYXNlCiAgICBlcnIKCm1haW5fX19hbGdvdHNfXy5kZWZhdWx0Q3JlYXRlQDk6CiAgICAvLyBzbWFydF9jb250cmFjdHMvcmV3YXJkX2Rpc3RyaWJ1dG9yL2R1bW15LnBvb2wuY29udHJhY3QuYWxnby50czo5CiAgICAvLyBleHBvcnQgY2xhc3MgRHVtbXlQb29sIGV4dGVuZHMgQ29udHJhY3QgewogICAgdHhuIE9uQ29tcGxldGlvbgogICAgIQogICAgdHhuIEFwcGxpY2F0aW9uSUQKICAgICEKICAgICYmCiAgICBhc3NlcnQgLy8gT25Db21wbGV0aW9uIG11c3QgYmUgTm9PcCAmJiBjYW4gb25seSBjYWxsIHdoZW4gY3JlYXRpbmcKICAgIGludGNfMCAvLyAxCiAgICByZXR1cm4KCgovLyBzbWFydF9jb250cmFjdHMvcmV3YXJkX2Rpc3RyaWJ1dG9yL2R1bW15LnBvb2wuY29udHJhY3QuYWxnby50czo6RHVtbXlQb29sLmluaXRpYWxpemVbcm91dGluZ10oKSAtPiB2b2lkOgppbml0aWFsaXplOgogICAgLy8gc21hcnRfY29udHJhY3RzL3Jld2FyZF9kaXN0cmlidXRvci9kdW1teS5wb29sLmNvbnRyYWN0LmFsZ28udHM6MTkKICAgIC8vIEBhcmM0LmFiaW1ldGhvZCgpCiAgICB0eG5hIEFwcGxpY2F0aW9uQXJncyAxCiAgICBkdXAKICAgIGxlbgogICAgaW50Y18xIC8vIDgKICAgID09CiAgICBhc3NlcnQgLy8gaW52YWxpZCBudW1iZXIgb2YgYnl0ZXMgZm9yIGFyYzQudWludDY0CiAgICAvLyBzbWFydF9jb250cmFjdHMvcmV3YXJkX2Rpc3RyaWJ1dG9yL2R1bW15LnBvb2wuY29udHJhY3QuYWxnby50czoxMQogICAgLy8gYXBwU3RhdGUgPSAgQm94PEFwcFN0YXRlPih7a2V5OiAiYXBwU3RhdGUifSkKICAgIGJ5dGVjXzAgLy8gImFwcFN0YXRlIgogICAgLy8gc21hcnRfY29udHJhY3RzL3Jld2FyZF9kaXN0cmlidXRvci9kdW1teS5wb29sLmNvbnRyYWN0LmFsZ28udHM6MjEKICAgIC8vIGFzc2VydCghdGhpcy5hcHBTdGF0ZS5leGlzdHMsICdBbHJlYWR5IGluaXRpYWxpemVkJykKICAgIGJveF9sZW4KICAgIGJ1cnkgMQogICAgIQogICAgYXNzZXJ0IC8vIEFscmVhZHkgaW5pdGlhbGl6ZWQKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9yZXdhcmRfZGlzdHJpYnV0b3IvZHVtbXkucG9vbC5jb250cmFjdC5hbGdvLnRzOjIyCiAgICAvLyBhc3NlcnQoVHhuLnNlbmRlciA9PT0gR2xvYmFsLmNyZWF0b3JBZGRyZXNzLCAnT25seSB0aGUgY3JlYXRvciBjYW4gaW5pdGlhbGl6ZScpCiAgICB0eG4gU2VuZGVyCiAgICBnbG9iYWwgQ3JlYXRvckFkZHJlc3MKICAgID09CiAgICBhc3NlcnQgLy8gT25seSB0aGUgY3JlYXRvciBjYW4gaW5pdGlhbGl6ZQogICAgLy8gc21hcnRfY29udHJhY3RzL3Jld2FyZF9kaXN0cmlidXRvci9kdW1teS5wb29sLmNvbnRyYWN0LmFsZ28udHM6MTEKICAgIC8vIGFwcFN0YXRlID0gIEJveDxBcHBTdGF0ZT4oe2tleTogImFwcFN0YXRlIn0pCiAgICBieXRlY18wIC8vICJhcHBTdGF0ZSIKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9yZXdhcmRfZGlzdHJpYnV0b3IvZHVtbXkucG9vbC5jb250cmFjdC5hbGdvLnRzOjI0LTI2CiAgICAvLyB0aGlzLmFwcFN0YXRlLnZhbHVlID0gbmV3IEFwcFN0YXRlKHsKICAgIC8vICAgZGlzdHJpYnV0b3JBcHA6IG5ldyBVaW50NjQoZGlzdHJpYnV0b3JBcHAuaWQpLAogICAgLy8gfSkKICAgIHN3YXAKICAgIGJveF9wdXQKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9yZXdhcmRfZGlzdHJpYnV0b3IvZHVtbXkucG9vbC5jb250cmFjdC5hbGdvLnRzOjE5CiAgICAvLyBAYXJjNC5hYmltZXRob2QoKQogICAgaW50Y18wIC8vIDEKICAgIHJldHVybgoKCi8vIHNtYXJ0X2NvbnRyYWN0cy9yZXdhcmRfZGlzdHJpYnV0b3IvZHVtbXkucG9vbC5jb250cmFjdC5hbGdvLnRzOjpEdW1teVBvb2wuY2FsbEFkZFB1cmNoYXNlW3JvdXRpbmddKCkgLT4gdm9pZDoKY2FsbEFkZFB1cmNoYXNlOgogICAgLy8gc21hcnRfY29udHJhY3RzL3Jld2FyZF9kaXN0cmlidXRvci9kdW1teS5wb29sLmNvbnRyYWN0LmFsZ28udHM6MzYKICAgIC8vIEBhcmM0LmFiaW1ldGhvZCgpCiAgICB0eG5hIEFwcGxpY2F0aW9uQXJncyAxCiAgICBkdXAKICAgIGxlbgogICAgcHVzaGludCAzMiAvLyAzMgogICAgPT0KICAgIGFzc2VydCAvLyBpbnZhbGlkIG51bWJlciBvZiBieXRlcyBmb3IgYXJjNC5zdGF0aWNfYXJyYXk8YXJjNC51aW50OCwgMzI+CiAgICB0eG5hIEFwcGxpY2F0aW9uQXJncyAyCiAgICBkdXAKICAgIGxlbgogICAgaW50Y18xIC8vIDgKICAgID09CiAgICBhc3NlcnQgLy8gaW52YWxpZCBudW1iZXIgb2YgYnl0ZXMgZm9yIGFyYzQudWludDY0CiAgICAvLyBzbWFydF9jb250cmFjdHMvcmV3YXJkX2Rpc3RyaWJ1dG9yL2R1bW15LnBvb2wuY29udHJhY3QuYWxnby50czoxMQogICAgLy8gYXBwU3RhdGUgPSAgQm94PEFwcFN0YXRlPih7a2V5OiAiYXBwU3RhdGUifSkKICAgIGJ5dGVjXzAgLy8gImFwcFN0YXRlIgogICAgLy8gc21hcnRfY29udHJhY3RzL3Jld2FyZF9kaXN0cmlidXRvci9kdW1teS5wb29sLmNvbnRyYWN0LmFsZ28udHM6MzgKICAgIC8vIGFzc2VydCAodGhpcy5hcHBTdGF0ZS5leGlzdHMsICdOb3QgaW5pdGlhbGl6ZWQnKQogICAgYm94X2xlbgogICAgYnVyeSAxCiAgICBhc3NlcnQgLy8gTm90IGluaXRpYWxpemVkCiAgICAvLyBzbWFydF9jb250cmFjdHMvcmV3YXJkX2Rpc3RyaWJ1dG9yL2R1bW15LnBvb2wuY29udHJhY3QuYWxnby50czoxMQogICAgLy8gYXBwU3RhdGUgPSAgQm94PEFwcFN0YXRlPih7a2V5OiAiYXBwU3RhdGUifSkKICAgIGJ5dGVjXzAgLy8gImFwcFN0YXRlIgogICAgLy8gc21hcnRfY29udHJhY3RzL3Jld2FyZF9kaXN0cmlidXRvci9kdW1teS5wb29sLmNvbnRyYWN0LmFsZ28udHM6MzkKICAgIC8vIGFzc2VydCh0aGlzLmFwcFN0YXRlLnZhbHVlLmRpc3RyaWJ1dG9yQXBwICE9PSBuZXcgVWludDY0KDApLCAnTm90IGluaXRpYWxpemVkJykKICAgIGJveF9nZXQKICAgIHBvcAogICAgZHVwCiAgICBleHRyYWN0IDAgOAogICAgcHVzaGJ5dGVzIDB4MDAwMDAwMDAwMDAwMDAwMAogICAgIT0KICAgIGFzc2VydCAvLyBOb3QgaW5pdGlhbGl6ZWQKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9yZXdhcmRfZGlzdHJpYnV0b3IvZHVtbXkucG9vbC5jb250cmFjdC5hbGdvLnRzOjQwCiAgICAvLyBjb25zdCBkaXN0cmlidXRvckFwcDogQXBwbGljYXRpb24gPSBBcHBsaWNhdGlvbih0aGlzLmFwcFN0YXRlLnZhbHVlLmRpc3RyaWJ1dG9yQXBwLmFzVWludDY0KCkpCiAgICBpbnRjXzIgLy8gMAogICAgZXh0cmFjdF91aW50NjQKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9yZXdhcmRfZGlzdHJpYnV0b3IvZHVtbXkucG9vbC5jb250cmFjdC5hbGdvLnRzOjQxCiAgICAvLyBhc3NlcnQoVHhuLnNlbmRlciA9PT0gZGlzdHJpYnV0b3JBcHAuYWRkcmVzcywgJ09ubHkgdGhlIGRpc3RyaWJ1dG9yIGFwcCBjYW4gbG9nIHB1cmNoYXNlcycpCiAgICB0eG4gU2VuZGVyCiAgICBkaWcgMQogICAgYXBwX3BhcmFtc19nZXQgQXBwQWRkcmVzcwogICAgYXNzZXJ0IC8vIGFwcGxpY2F0aW9uIGV4aXN0cwogICAgPT0KICAgIGFzc2VydCAvLyBPbmx5IHRoZSBkaXN0cmlidXRvciBhcHAgY2FuIGxvZyBwdXJjaGFzZXMKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9yZXdhcmRfZGlzdHJpYnV0b3IvZHVtbXkucG9vbC5jb250cmFjdC5hbGdvLnRzOjQ0CiAgICAvLyBhcmM0LmFiaUNhbGwoe2FwcElkOmRpc3RyaWJ1dG9yQXBwSWQsIG1ldGhvZDogUmV3YXJkRGlzdHJpYnV0b3IucHJvdG90eXBlLmFkZFB1cmNoYXNlLCBhcmdzOiBbcHVyY2hhc2VyLCBwdXJjaGFzZUFtb3VudF0sfSkKICAgIGl0eG5fYmVnaW4KICAgIHB1c2hieXRlcyAweDFjYzJlNDk0IC8vIG1ldGhvZCAiYWRkUHVyY2hhc2UoYWRkcmVzcyx1aW50NjQpdm9pZCIKICAgIGl0eG5fZmllbGQgQXBwbGljYXRpb25BcmdzCiAgICB1bmNvdmVyIDIKICAgIGl0eG5fZmllbGQgQXBwbGljYXRpb25BcmdzCiAgICBpdHhuX2ZpZWxkIEFwcGxpY2F0aW9uSUQKICAgIGl0eG5fZmllbGQgQXBwbGljYXRpb25BcmdzCiAgICBwdXNoaW50IDYgLy8gYXBwbAogICAgaXR4bl9maWVsZCBUeXBlRW51bQogICAgaW50Y18yIC8vIDAKICAgIGl0eG5fZmllbGQgRmVlCiAgICBpdHhuX3N1Ym1pdAogICAgLy8gc21hcnRfY29udHJhY3RzL3Jld2FyZF9kaXN0cmlidXRvci9kdW1teS5wb29sLmNvbnRyYWN0LmFsZ28udHM6MzYKICAgIC8vIEBhcmM0LmFiaW1ldGhvZCgpCiAgICBpbnRjXzAgLy8gMQogICAgcmV0dXJuCg==",
+        "clear": "I3ByYWdtYSB2ZXJzaW9uIDExCiNwcmFnbWEgdHlwZXRyYWNrIGZhbHNlCgovLyBAYWxnb3JhbmRmb3VuZGF0aW9uL2FsZ29yYW5kLXR5cGVzY3JpcHQvYmFzZS1jb250cmFjdC5kLnRzOjpCYXNlQ29udHJhY3QuY2xlYXJTdGF0ZVByb2dyYW0oKSAtPiB1aW50NjQ6Cm1haW46CiAgICBwdXNoaW50IDEgLy8gMQogICAgcmV0dXJuCg=="
+    },
+    "byteCode": {
+        "approval": "CyADAQgAJgEIYXBwU3RhdGUxG0EAHTEZFEQxGESCAgQIVJrXBDVhIIE2GgCOAgALACQAMRkUMRgUEEQiQzYaAUkVIxJEKL1FARREMQAyCRJEKEy/IkM2GgFJFYEgEkQ2GgJJFSMSRCi9RQFEKL5ISVcACIAIAAAAAAAAAAATRCRbMQBLAXIIRBJEsYAEHMLklLIaTwKyGrIYshqBBrIQJLIBsyJD",
+        "clear": "C4EBQw=="
+    },
+    "compilerInfo": {
+        "compiler": "puya",
+        "compilerVersion": {
+            "major": 5,
+            "minor": 3,
+            "patch": 2
+        }
+    },
+    "events": [],
+    "templateVariables": {}
+}

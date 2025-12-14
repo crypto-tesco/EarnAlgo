@@ -1,0 +1,211 @@
+#pragma version 11
+#pragma typetrack false
+
+// @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
+main:
+    intcblock 1 8
+    bytecblock "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:11
+    // export class RewardDistributor extends Contract {
+    txn NumAppArgs
+    bz main___algots__.defaultCreate@10
+    txn OnCompletion
+    !
+    assert // OnCompletion must be NoOp
+    txn ApplicationID
+    assert
+    pushbytess 0x08549ad7 0x5ddff8a0 0x1cc2e494 // method "initialize(uint64)void", method "updateSettings((uint64,address,uint64,uint64))void", method "addPurchase(address,uint64)void"
+    txna ApplicationArgs 0
+    match initialize updateSettings addPurchase
+    err
+
+main___algots__.defaultCreate@10:
+    // smart_contracts/reward_distributor/contract.algo.ts:11
+    // export class RewardDistributor extends Contract {
+    txn OnCompletion
+    !
+    txn ApplicationID
+    !
+    &&
+    assert // OnCompletion must be NoOp && can only call when creating
+    intc_0 // 1
+    return
+
+
+// smart_contracts/reward_distributor/contract.algo.ts::RewardDistributor.initialize[routing]() -> void:
+initialize:
+    // smart_contracts/reward_distributor/contract.algo.ts:21
+    // @arc4.abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    // smart_contracts/reward_distributor/contract.algo.ts:13
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:23
+    // assert(!this.appState.exists, 'Already initialized')
+    box_len
+    bury 1
+    !
+    assert // Already initialized
+    // smart_contracts/reward_distributor/contract.algo.ts:24
+    // assert(Txn.sender === Global.creatorAddress, 'Only the creator can initialize')
+    txn Sender
+    global CreatorAddress
+    ==
+    assert // Only the creator can initialize
+    // smart_contracts/reward_distributor/contract.algo.ts:28
+    // lastPurchaser: new Address(Global.zeroAddress),
+    global ZeroAddress
+    // smart_contracts/reward_distributor/contract.algo.ts:26-31
+    // this.appState.value = new AppState({
+    //   poolApp: new Uint64(poolApp.id),
+    //   lastPurchaser: new Address(Global.zeroAddress),
+    //   lastPurchaseTime: new Uint64(0),
+    //   threshold: new Uint64(1_000_000),
+    // })
+    concat
+    pushbytes 0x000000000000000000000000000f4240
+    concat
+    // smart_contracts/reward_distributor/contract.algo.ts:13
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:26-31
+    // this.appState.value = new AppState({
+    //   poolApp: new Uint64(poolApp.id),
+    //   lastPurchaser: new Address(Global.zeroAddress),
+    //   lastPurchaseTime: new Uint64(0),
+    //   threshold: new Uint64(1_000_000),
+    // })
+    swap
+    box_put
+    // smart_contracts/reward_distributor/contract.algo.ts:21
+    // @arc4.abimethod()
+    intc_0 // 1
+    return
+
+
+// smart_contracts/reward_distributor/contract.algo.ts::RewardDistributor.updateSettings[routing]() -> void:
+updateSettings:
+    // smart_contracts/reward_distributor/contract.algo.ts:40
+    // @arc4.abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    pushint 56 // 56
+    ==
+    assert // invalid number of bytes for AppState
+    // smart_contracts/reward_distributor/contract.algo.ts:13
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:42
+    // assert (this.appState.exists, 'Not initialized')
+    box_len
+    bury 1
+    assert // Not initialized
+    // smart_contracts/reward_distributor/contract.algo.ts:43
+    // assert(Txn.sender === Global.creatorAddress, 'Only the creator can update settings')
+    txn Sender
+    global CreatorAddress
+    ==
+    assert // Only the creator can update settings
+    // smart_contracts/reward_distributor/contract.algo.ts:45
+    // this.appState.value.threshold = appState.threshold
+    extract 48 8
+    // smart_contracts/reward_distributor/contract.algo.ts:13
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:45
+    // this.appState.value.threshold = appState.threshold
+    pushint 48 // 48
+    uncover 2
+    box_replace
+    // smart_contracts/reward_distributor/contract.algo.ts:40
+    // @arc4.abimethod()
+    intc_0 // 1
+    return
+
+
+// smart_contracts/reward_distributor/contract.algo.ts::RewardDistributor.addPurchase[routing]() -> void:
+addPurchase:
+    // smart_contracts/reward_distributor/contract.algo.ts:55
+    // @arc4.abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    pushint 32 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    // smart_contracts/reward_distributor/contract.algo.ts:13
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:57
+    // assert (this.appState.exists, 'Not initialized')
+    box_len
+    bury 1
+    assert // Not initialized
+    // smart_contracts/reward_distributor/contract.algo.ts:13
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:58
+    // assert(this.appState.value.poolApp !== new Uint64(0), 'Not initialized')
+    box_get
+    pop
+    dup
+    extract 0 8
+    pushbytes 0x0000000000000000
+    !=
+    assert // Not initialized
+    // smart_contracts/reward_distributor/contract.algo.ts:59
+    // const poolApp: Application = Application(this.appState.value.poolApp.asUint64())
+    pushint 0 // 0
+    extract_uint64
+    // smart_contracts/reward_distributor/contract.algo.ts:60
+    // assert(Txn.sender === poolApp.address, 'Only the pool app can log purchases')
+    txn Sender
+    swap
+    app_params_get AppAddress
+    assert // application exists
+    ==
+    assert // Only the pool app can log purchases
+    // smart_contracts/reward_distributor/contract.algo.ts:63
+    // if(purchaseAmount.asUint64() > 1_000_000) {
+    btoi
+    pushint 1000000 // 1000000
+    >
+    bz addPurchase_after_if_else@3
+    // smart_contracts/reward_distributor/contract.algo.ts:13
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:64
+    // this.appState.value.lastPurchaser = purchaser
+    intc_1 // 8
+    dig 2
+    box_replace
+    // smart_contracts/reward_distributor/contract.algo.ts:65
+    // this.appState.value.lastPurchaseTime = new Uint64(Global.latestTimestamp)
+    global LatestTimestamp
+    itob
+    // smart_contracts/reward_distributor/contract.algo.ts:13
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/contract.algo.ts:65
+    // this.appState.value.lastPurchaseTime = new Uint64(Global.latestTimestamp)
+    pushint 40 // 40
+    uncover 2
+    box_replace
+
+addPurchase_after_if_else@3:
+    // smart_contracts/reward_distributor/contract.algo.ts:55
+    // @arc4.abimethod()
+    intc_0 // 1
+    return

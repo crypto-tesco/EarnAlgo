@@ -1,0 +1,140 @@
+#pragma version 11
+#pragma typetrack false
+
+// @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
+main:
+    intcblock 1 8 0
+    bytecblock "appState"
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:9
+    // export class DummyPool extends Contract {
+    txn NumAppArgs
+    bz main___algots__.defaultCreate@9
+    txn OnCompletion
+    !
+    assert // OnCompletion must be NoOp
+    txn ApplicationID
+    assert
+    pushbytess 0x08549ad7 0x35612081 // method "initialize(uint64)void", method "callAddPurchase(address,uint64)void"
+    txna ApplicationArgs 0
+    match initialize callAddPurchase
+    err
+
+main___algots__.defaultCreate@9:
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:9
+    // export class DummyPool extends Contract {
+    txn OnCompletion
+    !
+    txn ApplicationID
+    !
+    &&
+    assert // OnCompletion must be NoOp && can only call when creating
+    intc_0 // 1
+    return
+
+
+// smart_contracts/reward_distributor/dummy.pool.contract.algo.ts::DummyPool.initialize[routing]() -> void:
+initialize:
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:19
+    // @arc4.abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:11
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:21
+    // assert(!this.appState.exists, 'Already initialized')
+    box_len
+    bury 1
+    !
+    assert // Already initialized
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:22
+    // assert(Txn.sender === Global.creatorAddress, 'Only the creator can initialize')
+    txn Sender
+    global CreatorAddress
+    ==
+    assert // Only the creator can initialize
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:11
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:24-26
+    // this.appState.value = new AppState({
+    //   distributorApp: new Uint64(distributorApp.id),
+    // })
+    swap
+    box_put
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:19
+    // @arc4.abimethod()
+    intc_0 // 1
+    return
+
+
+// smart_contracts/reward_distributor/dummy.pool.contract.algo.ts::DummyPool.callAddPurchase[routing]() -> void:
+callAddPurchase:
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:36
+    // @arc4.abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    pushint 32 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:11
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:38
+    // assert (this.appState.exists, 'Not initialized')
+    box_len
+    bury 1
+    assert // Not initialized
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:11
+    // appState =  Box<AppState>({key: "appState"})
+    bytec_0 // "appState"
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:39
+    // assert(this.appState.value.distributorApp !== new Uint64(0), 'Not initialized')
+    box_get
+    pop
+    dup
+    extract 0 8
+    pushbytes 0x0000000000000000
+    !=
+    assert // Not initialized
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:40
+    // const distributorApp: Application = Application(this.appState.value.distributorApp.asUint64())
+    intc_2 // 0
+    extract_uint64
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:41
+    // assert(Txn.sender === distributorApp.address, 'Only the distributor app can log purchases')
+    txn Sender
+    dig 1
+    app_params_get AppAddress
+    assert // application exists
+    ==
+    assert // Only the distributor app can log purchases
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:44
+    // arc4.abiCall({appId:distributorAppId, method: RewardDistributor.prototype.addPurchase, args: [purchaser, purchaseAmount],})
+    itxn_begin
+    pushbytes 0x1cc2e494 // method "addPurchase(address,uint64)void"
+    itxn_field ApplicationArgs
+    uncover 2
+    itxn_field ApplicationArgs
+    itxn_field ApplicationID
+    itxn_field ApplicationArgs
+    pushint 6 // appl
+    itxn_field TypeEnum
+    intc_2 // 0
+    itxn_field Fee
+    itxn_submit
+    // smart_contracts/reward_distributor/dummy.pool.contract.algo.ts:36
+    // @arc4.abimethod()
+    intc_0 // 1
+    return
